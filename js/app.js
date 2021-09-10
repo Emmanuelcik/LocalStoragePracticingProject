@@ -13,5 +13,26 @@ function eventListeners() {
 //Funciones
 function agregarTweet(e) {
     e.preventDefault();
-    
+   
+    //textarea
+    const tweet = document.querySelector("#tweet").value;
+    if (tweet === ""){
+        mostrarError("No puedes agregar un tweet vacio");
+        return;
+    }
+}
+function mostrarError(mensaje){
+    const mensajeError = document.createElement("P");
+    mensajeError.textContent = mensaje;
+    mensajeError.classList.add("error");
+
+    //insrtarlo en el HTML
+
+    const contenido = document.querySelector("#contenido");
+    contenido.appendChild(mensajeError);
+
+    //Elimina la alerta despeus de 3 seg
+    setTimeout( ()=>{
+        mensajeError.remove();
+    }, 3000)
 }
