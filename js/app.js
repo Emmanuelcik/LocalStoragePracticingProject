@@ -22,13 +22,19 @@ function agregarTweet(e) {
     }
 }
 function mostrarError(mensaje){
+    
+    const errorPrevio = document.querySelector(".error");
+    if(errorPrevio){
+        return;
+    }
     const mensajeError = document.createElement("P");
+
     mensajeError.textContent = mensaje;
     mensajeError.classList.add("error");
 
     //insrtarlo en el HTML
-
     const contenido = document.querySelector("#contenido");
+       
     contenido.appendChild(mensajeError);
 
     //Elimina la alerta despeus de 3 seg
