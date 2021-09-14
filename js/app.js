@@ -8,7 +8,15 @@ let tweets = [];
 //Event Listeners
 eventListeners();
 function eventListeners() {
+    //Cuando el usuario agrega un nuevo tweet
     formulario.addEventListener("submit", agregarTweet);
+
+    //Cuando el dom esta listo
+    document.addEventListener("DOMContentLoaded", () =>{
+        tweets = JSON.parse( localStorage.getItem("tweets")) || [];
+        crearHTML();
+    })
+    
 }
 
 //Funciones
