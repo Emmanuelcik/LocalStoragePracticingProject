@@ -1,4 +1,5 @@
 //Variables
+
 const formulario = document.querySelector('#formulario');
 const listaTweets = document.querySelector("#lista-tweets");
 let tweets = [];
@@ -71,6 +72,9 @@ function crearHTML() {
 
         listaTweets.appendChild(li);
     });
+
+    //SINCRONIZAR STORAGE
+    sincronizarStorage();
 }
 
 //limpiar el HTML 
@@ -79,4 +83,9 @@ function limpiarHTML () {
     while(listaTweets.firstChild) {
         listaTweets.removeChild(listaTweets.firstChild);
     }
+}
+
+//Agrega los tweets actuales a localstorage
+function sincronizarStorage() {
+    localStorage.setItem("tweets", JSON.stringify(tweets));
 }
